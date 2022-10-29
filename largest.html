@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Largest</title>
+</head>
+<body>
+    <p>Enter the position of largest number you want:</p>
+    <input  id="pos" type="number" name = "num" value="1">
+    <button onclick="find_largest() " > Find</button>
+    <p>The <b id="p"></b> largest number is :</p> <h1 id="result"> </h1>
+  
+    <!-- i write code rasm -->
+    <script>
+
+    var inputArray = [];
+    var size =parseInt(prompt("Enter the size of array:")) ; 
+
+    for(var i=0; i<size; i++) {
+	//Taking Input from user
+	    inputArray[i] = parseInt(prompt('Enter the Element: ' + (i+1)));
+    }
+    
+    
+    function find_largest()
+    {
+        //for position 
+        let position = document.getElementById("pos").value;
+        if(position == 1)
+            document.getElementById("p").innerHTML = position+"st";
+        else if (position == 2 )
+            document.getElementById("p").innerHTML = position+"nd";
+        else if (position == 3 )
+            document.getElementById("p").innerHTML = position+"rd";
+        else
+            document.getElementById("p").innerHTML = position+"th";
+
+        inputArray.sort(function(a, b){return b - a});
+
+       if(position <= size)
+       {
+        let res = inputArray[position - 1];
+        document.getElementById("result").innerHTML = res;
+    }
+    else
+        document.getElementById("result").innerHTML = "Invalid ! " ;
+
+    
+    }
+    </script>
+</body>
+</html>
